@@ -1,10 +1,12 @@
-# filepath: c:\Users\USER\Documents\.VS Code\Gemini Bot W\chatbot-project\src\app.py
 import streamlit as st
 from openai import OpenAI
 
+# Read the API key from Streamlit secrets
+api_key = st.secrets["openai"]["api_key"]
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="your_actual_api_key_here",
+    api_key=api_key,
 )
 
 def get_response(user_input):
